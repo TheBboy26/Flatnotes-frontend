@@ -1,15 +1,19 @@
-export const goodLogin = (user) =>{
-    return{
-        type: 'GOOD_LOGIN', user
+export const loginSuccess = (user) => {
+    return {
+        type: 'LOGIN_SUCCESS',
+        user
     }
 }
-export const goodRegister = (user) =>{
-    return{
-        type: 'GOOD_REGISTER', user
+
+export const registerSuccess = (user) => {
+    return {
+        type: 'REGISTER_SUCCESS',
+        user
     }
 }
-export const goodLogout = () =>{
-    return{
-        type: 'LOGOUT'
+
+export const logoutSuccess = () => {
+    return {
+        type: 'LOGOUT_SUCCESS'
     }
 }
