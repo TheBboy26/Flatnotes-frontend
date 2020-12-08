@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './Component.css'
+import { loginSuccess } from '../actions/userAction'
+import { getUserNotes } from '../actions/noteActions'
+import { connect } from 'react-redux'
 
 export class Login extends Component {
 
@@ -50,4 +53,11 @@ export class Login extends Component {
     }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loginSuccess: (user) => dispatch(loginSuccess(user)),
+        getUserNotes: (userNotes) => dispatch(getUserNotes(userNotes))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

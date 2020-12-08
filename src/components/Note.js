@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Component.css'
+import { deleteNote } from '../actions/noteActions'
 
 export class Note extends Component {
 
@@ -28,4 +29,10 @@ export class Note extends Component {
     }
 }
 
-export default Note
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteNote: (noteId) => dispatch(deleteNote(noteId))
+    }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(Note))

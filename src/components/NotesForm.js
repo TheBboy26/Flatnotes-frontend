@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import './Component.css'
+import { connect } from 'react-redux'
+import { createNote } from '../actions/noteActions'
 
 export class NoteForm extends Component {
     constructor(){
@@ -44,4 +46,16 @@ export class NoteForm extends Component {
     }
 }
 
-export default NoteForm;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createNote: (note) => dispatch(createNote(note))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm)

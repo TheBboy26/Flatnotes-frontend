@@ -1,16 +1,14 @@
-
-const users = (state = null, action) =>{
-    switch (action.type){
-        case "GOOD_LOGIN":
+const user = (state = null, action) => {
+    switch (action.type) {
+        case 'LOGIN_SUCCESS':
             return action.user
-        case 'GOOD_REGISTER':
+        case 'REGISTER_SUCCESS':
             return action.user
-        case 'LOGOUT':
+        case 'LOGOUT_SUCCESS':
             return null
-
-            default:
-                return state
+        default:
+            return state
     }
 }
 
-export default users
+export default user

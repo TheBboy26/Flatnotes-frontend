@@ -1,5 +1,8 @@
 import React, {Component, Fragment} from 'react'
 import './Component.css'
+import { registerSuccess } from '../actions/userAction'
+import { getUserNotes } from '../actions/noteActions'
+import { connect } from 'react-redux'
 
 export class Register extends Component {
     constructor(){
@@ -51,4 +54,11 @@ export class Register extends Component {
     }
 }
 
-export default Register;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        registerSuccess: (user) => dispatch(registerSuccess(user)),
+        getUserNotes: (userNotes) => dispatch(getUserNotes(userNotes))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Register)
